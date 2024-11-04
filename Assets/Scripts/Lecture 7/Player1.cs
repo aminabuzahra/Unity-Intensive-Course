@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Android.Types;
 using UnityEngine;
 
-public class Player 
+public class Player1 
 {
     string name;
     int health;
