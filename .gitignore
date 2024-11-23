@@ -7,7 +7,6 @@
 /Packages
 /ProjectSettings
 /Unity Intensive Course.sln
-/Assets/Scenes/
 *.meta
 /Assets/*
 !/Assets/Scripts/
