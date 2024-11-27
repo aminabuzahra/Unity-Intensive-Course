@@ -6,7 +6,7 @@ using UnityEngine;
 public class CarScript : MonoBehaviour
 {
     public float speed = 7f;
-    float maximumSteerAngle = 60f;
+    // float maximumSteerAngle = 60f;
 
     float steerSpeed = 15;
 
@@ -69,7 +69,7 @@ public class CarScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                wheelFrontRight.localEulerAngles += new Vector3(0f, Time.deltaTime * steerSpeed, 0f);   
+                wheelFrontRight.localEulerAngles += new Vector3(0f, Time.deltaTime * steerSpeed, 0f);
             }
             else if (Input.GetKey(KeyCode.LeftArrow))
             {
