@@ -19,5 +19,6 @@ public class MoveSeveralObjects : MonoBehaviour
         {
             cubes[i].Translate(Vector3.left * speeds[i] * Time.deltaTime);
         }
+        
     }
 }
