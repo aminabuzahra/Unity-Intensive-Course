@@ -12,7 +12,7 @@ public class ColorExample : MonoBehaviour
     public Color startColor = Color.red;
     public Color endColor = Color.blue;
 
-    Renderer renderer;
+    // Renderer renderer;
     Material material;
 
     float timer = 0;
@@ -24,9 +24,9 @@ public class ColorExample : MonoBehaviour
 
         Camera.main.backgroundColor = Color.green;
 
-        renderer = GetComponent<Renderer>();
+        // renderer = GetComponent<Renderer>();
 
-        material = renderer.material;
+        material = GetComponent<Renderer>().material;
 
         // material.color = new Color(Random.Range(0,1.0000001f), Random.Range(0,1.0000001f), Random.Range(0,1.0000001f));
         // material.color = new Color(Random.value, Random.value, Random.value);

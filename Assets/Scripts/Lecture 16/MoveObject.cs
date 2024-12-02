@@ -6,7 +6,7 @@ namespace Lecture15
 {
     public class MoveObject : MonoBehaviour
     {
-        float speed = 5f;
+        // float speed = 5f;
 
         void Start()
         {
