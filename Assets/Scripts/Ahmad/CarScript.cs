@@ -6,44 +6,44 @@ using UnityEngine;
 public class CarScript : MonoBehaviour
 {
     public float speed = 7f;
-    // float maximumSteerAngle = 60f;
+    float maximumSteerAngle = 60f;
 
-    float steerSpeed = 15;
+    public float steerSpeed = 30;
 
     public Transform wheelFrontRight;
     public Transform wheelFrontLeft;
     public Transform wheelRearRight;
     public Transform wheelRearLeft;
 
+    Vector3 forward = Vector3.forward;
+
     public float wheelSpeed = 360f;
 
-    void Start()
-    {
-
-    }
+    float angleOfWheels = 0;
 
     void Update()
     {
         moveCarForwardBackward();
         rotateWheels();
         steerWheels();
+        steerCar();
     }
 
     void moveCarForwardBackward()
     {
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.position += Vector3.forward * speed * Time.deltaTime;
-
+            transform.position += forward * speed * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.position -= Vector3.forward * speed * Time.deltaTime;
+            transform.position -= forward * speed * Time.deltaTime;
         }
     }
 
     void rotateWheels()
     {
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             wheelFrontRight.Rotate(new Vector3(0, -Time.deltaTime * wheelSpeed, 0), Space.Self);
@@ -62,19 +62,28 @@ public class CarScript : MonoBehaviour
 
     void steerWheels()
     {
-        float currentAngleY = wheelFrontRight.localEulerAngles.y;
-        Debug.Log(currentAngleY);
-
-        if (currentAngleY >= 300f || currentAngleY <= 60f)
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                wheelFrontRight.localEulerAngles += new Vector3(0f, Time.deltaTime * steerSpeed, 0f);
-            }
-            else if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                wheelFrontRight.localEulerAngles -= new Vector3(0f, Time.deltaTime * steerSpeed, 0f);
-            }
+            angleOfWheels += Time.deltaTime * steerSpeed;
         }
+
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            angleOfWheels -= Time.deltaTime * steerSpeed;
+        }
+        else
+        {
+            angleOfWheels = Mathf.Lerp(angleOfWheels, 0, Time.deltaTime * steerSpeed * 0.75f);
+        }
+
+        angleOfWheels = Mathf.Clamp(angleOfWheels, -maximumSteerAngle, maximumSteerAngle);
+
+        wheelFrontRight.localEulerAngles = new Vector3(0f, angleOfWheels, 90f);
+        wheelFrontLeft.localEulerAngles = new Vector3(0f, angleOfWheels, 90f);
+    }
+
+    void steerCar()
+    {
+        // forward = Quaternion.Euler(0, 1, 0) * forward;
     }
 }
