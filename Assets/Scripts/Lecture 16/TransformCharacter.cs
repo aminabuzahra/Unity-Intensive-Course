@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TransformCharacter : MonoBehaviour
 {
-    float anglel = 0f;
+    // float anglel = 0f;
 
     public Transform gameObject;
 

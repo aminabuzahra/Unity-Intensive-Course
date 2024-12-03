@@ -7,6 +7,7 @@ public class DoNotPassTheBoundaries : MonoBehaviour
     float zPos = 0;
     public float speed = 10;
 
+
     void Update()
     {
         xPos += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
