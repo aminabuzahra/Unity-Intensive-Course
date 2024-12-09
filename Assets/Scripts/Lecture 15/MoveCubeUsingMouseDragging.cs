@@ -19,7 +19,10 @@ namespace Lecture15
             {
                 Vector3 mousePosition = Input.mousePosition;
                 mousePosition.z = 10;
+
+                // float Z = transform.position.z;
                 Vector3 InUnityPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                // InUnityPosition.z = Z;
                 // transform.position = InUnityPosition;
                 transform.position = Vector3.Lerp(transform.position, InUnityPosition, speed * Time.deltaTime);
             }

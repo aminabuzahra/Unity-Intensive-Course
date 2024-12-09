@@ -13,6 +13,8 @@ namespace Lecture17
         public bool LookAt = true;
         public float cameraSpeed = 0.05f;
 
+        public Transform[] array;
+
         void Start()
         {
             difference = transform.position - target.position;
@@ -21,7 +23,7 @@ namespace Lecture17
 
         void LateUpdate()
         {
-            Vector3 newPosition = Vector3.Lerp(transform.position, target.position + difference, cameraSpeed);
+            Vector3 newPosition = Vector3.Slerp(transform.position, target.position + difference, cameraSpeed);
             transform.position = newPosition;
             if (LookAt)
             {
