@@ -26,6 +26,6 @@ public class OpenBook : MonoBehaviour
     {
         bookAngle = Mathf.Clamp(bookAngle, -180, 0);
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, bookAngle));
-        Debug.Log(transform.rotation.eulerAngles.z);
+        // Debug.Log(transform.rotation.eulerAngles.z);
     }
 }

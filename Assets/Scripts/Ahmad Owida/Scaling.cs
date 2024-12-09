@@ -15,18 +15,20 @@ public class Scaling : MonoBehaviour
     void Start()
     {
         scaleFactor = minScale;
+        // transform.GetChild(0).gameObject.SetActive(false);
     }
     void Update()
     {
         if (Input.GetKey(KeyCode.A)) // Left
         {
+            // transform.GetChild(0).gameObject.SetActive(true);
             scaleFactor -= Time.deltaTime;
         }
 
         else if (Input.GetKey(KeyCode.D)) // Right
         {
+            // transform.GetChild(0).gameObject.SetActive(true);
             scaleFactor += Time.deltaTime;
-
         }
         scaleFactor = Mathf.Clamp(scaleFactor, minScale, maxScale);
 
