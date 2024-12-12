@@ -23,6 +23,9 @@ public class APlayer : MonoBehaviour
         deltaPosition = transform.position - previousPosition;
         previousPosition = transform.position;
 
+        transform.Translate(deltaPosition, Space.World);
+        transform.Translate(deltaPosition, Space.Self);
+
         AbelAlRaouf.AR(index, ref driver, deltaPosition.x);
     }
 }
