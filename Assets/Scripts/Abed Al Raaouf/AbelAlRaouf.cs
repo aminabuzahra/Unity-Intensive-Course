@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class AbelAlRaouf : MonoBehaviour
@@ -39,7 +38,8 @@ public class AbelAlRaouf : MonoBehaviour
         {
             if (driver[index] <= 1)
             {
-                AR(index, ref driver);
+                AR(index, ref driver, Time.deltaTime * speed);
+                // AR(index, ref driver, 0.01f);
             }
         }
 
@@ -53,16 +53,16 @@ public class AbelAlRaouf : MonoBehaviour
         }
     }
 
-    void AR(int index, ref float[] driver)
+    public static void AR(int index, ref float[] driver, float incrementValue)
     {
         int previous = index - 1;
         if (previous >= 0)
         {
-            driver[previous] -= Time.deltaTime * speed;
+            driver[previous] -= incrementValue;
             driver[previous] = Mathf.Clamp(driver[previous], 0, 1);
         }
 
-        driver[index] += Time.deltaTime * speed;
+        driver[index] += incrementValue;
         driver[index] = Mathf.Clamp(driver[index], 0, 1);
     }
 }
