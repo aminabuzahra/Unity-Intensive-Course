@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class CubeScript : MonoBehaviour
 {
-
     float scaleSensitivity = 50;
 
     float angleSensitivity = 500;
     float cubeScaleFactor = 0f;
 
     float cubeAngle = 0;
-
 
     void Start()
     {
@@ -29,7 +27,6 @@ public class CubeScript : MonoBehaviour
             cubeAngle += Input.GetAxis("Mouse X") * angleSensitivity * Time.deltaTime;
             cubeAngle = Mathf.Clamp(cubeAngle, 0, 90);
 
-         
             transform.rotation = Quaternion.Euler(0, cubeAngle, 0);
         }
     }
