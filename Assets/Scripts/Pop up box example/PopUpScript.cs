@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class PopUpScript : MonoBehaviour
 {
-    float sensitivity = 2000.0f;
+    float bookRotationSensitivity = 2000.0f;
     float zAngle = 0.0f;
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -27,8 +22,7 @@ public class PopUpScript : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             // transform.Rotate(Vector3.back * Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime, Space.Self); // // Increment the current angle around local z axis by the argument
-
-            zAngle -= Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+            zAngle -= Input.GetAxis("Mouse X") * bookRotationSensitivity * Time.deltaTime;
             zAngle = Mathf.Clamp(zAngle, -180, 0);
             transform.rotation = Quaternion.Euler(0, 0, zAngle);
         }
