@@ -3,42 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExceptionExample : MonoBehaviour
+namespace Lecture21
 {
-    void Start()
+    public class ExceptionExample : MonoBehaviour
     {
-        // Excpetion: Run Time Error
-        int a = 10;
-        
-        try
+        void Start()
         {
-            // open session with remote server
-            // a = a / 0;
-            if (a == 10)
+            // Excpetion: Run Time Error
+            int a = 10;
+
+            try
             {
-                throw new Exception("Saka'aeh Exception :)");
+                // open session with remote server
+                // a = a / 0;
+                if (a == 10)
+                {
+                    throw new Exception("Saka'aeh Exception :)");
+                }
             }
+
+            catch (Exception e)
+            {
+                Debug.LogError(e.Message);
+            }
+
+            finally
+            {
+                Debug.Log("Closing Session ....");
+            }
+
+            Debug.Log("After catching the exception");
+
+            Debug.Log(a);
         }
 
-        catch (Exception e)
-        {
-            Debug.LogError(e.Message);
-        }
-
-        finally
-        {
-            Debug.Log("Closing Session ....");
-        }
-
-        Debug.Log("After catching the exception");
-
-        Debug.Log(a);
+        // public class SException : Exception
+        // {
+        //     public SException(string message) : base(message)
+        //     {
+        //     }
+        // }
     }
-
-    // public class SException : Exception
-    // {
-    //     public SException(string message) : base(message)
-    //     {
-    //     }
-    // }
 }
