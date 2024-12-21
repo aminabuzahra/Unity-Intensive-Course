@@ -7,7 +7,7 @@ public class ListSorting : MonoBehaviour
     List<int> numbers = new List<int>() { 12, 4, 24, 16, 37 };
     void Start()
     {
-        numbers.Sort(Subhi);
+        numbers.Sort(Descending);
 
         foreach (var number in numbers)
         {
