@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -91,6 +92,22 @@ namespace Lecture24
                 Capacity *= 2;
             }
             _values[Count++] = v;
+        }
+
+        public void Sort(Func<T, T, int> CompareTo)
+        {
+            for (int j = 0; j < _values.Length; j++)
+            {
+                for (int i = 0; i < _values.Length - j - 1; i++)
+                {
+                    if (CompareTo(_values[i], _values[i + 1]) >= 1)
+                    {
+                        T temp = _values[i];
+                        _values[i] = _values[i + 1];
+                        _values[i + 1] = temp;
+                    }
+                }
+            }
         }
     }
 }
