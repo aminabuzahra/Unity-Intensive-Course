@@ -78,20 +78,21 @@ namespace Lecture24
 
         public void Add(T v)
         {
-            if (Capacity >= _values.Length)
+            if (Count >= Capacity)
             {
-                T[] tempArr = new T[Capacity * 2];
+                Capacity *= 2;
+                T[] _temp = new T[Capacity];
+                _values.CopyTo(_temp, 0);
+                _values = _temp;
 
+                /*
                 for (int i = 0; i < _values.Length; i++)
                 {
-                    tempArr[i] = _values[i];
+                    _temp[i] = _values[i];
                 }
-
-                _values = tempArr;
-
-                Capacity *= 2;
+                */
             }
-            _values[Count++] = v;
+            _values[_count++] = v;
         }
 
         public void Sort(Func<T, T, int> CompareTo)

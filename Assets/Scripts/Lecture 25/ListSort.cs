@@ -37,6 +37,8 @@ namespace Lecture25
             cList2.data[19] = "Nahla";
             cList2.data[20] = "Abdallah";
 
+            Debug.Log(cList2.data[UnityEngine.Random.Range(0, 21)]);
+
             //    print ("Subhi".CompareTo("Khader"));
 
             // print(string.Join(", ", cList.data));
