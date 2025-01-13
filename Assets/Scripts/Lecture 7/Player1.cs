@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Android.Types;
 using UnityEngine;
 
-public class Player1 
+public class Player1
 {
     string name;
     int health;
