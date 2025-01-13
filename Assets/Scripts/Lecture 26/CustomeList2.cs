@@ -25,10 +25,12 @@ namespace Lecture26
             //         Debug.Log(pointer.Current);
             //     }
 
-            // for (int i = 0; i < baderList.Count; i++)
-            // {
-            //     Debug.Log(baderList[i]);
-            // }
+            baderList.Sort((x, y) => y.CompareTo(x));
+
+            for (int i = 0; i < baderList.Count; i++)
+            {
+                Debug.Log(baderList[i]);
+            }
 
             foreach (var num in baderList)
             {
@@ -123,17 +125,20 @@ namespace Lecture26
 
         public void Sort(Func<T, T, int> CompareTo)
         {
-            for (int j = 0; j < _values.Length; j++)
+            for (int j = 0; j < Count - 1; j++)
             {
-                for (int i = 0; i < _values.Length - j - 1; i++)
+                bool swapped = false;
+                for (int i = 0; i < Count - j - 1; i++)
                 {
                     if (CompareTo(_values[i], _values[i + 1]) >= 1)
                     {
                         T temp = _values[i];
                         _values[i] = _values[i + 1];
                         _values[i + 1] = temp;
+                        swapped = true;
                     }
                 }
+                if (!swapped) break;
             }
         }
 
