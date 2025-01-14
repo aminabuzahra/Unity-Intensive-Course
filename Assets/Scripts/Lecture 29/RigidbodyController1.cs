@@ -31,6 +31,7 @@ namespace Lecture29
                                 0,
                                 -Input.GetAxisRaw("Vertical"));
             input = input.normalized * battahSpeed;
+
             input.y = rigidbody.velocity.y;
 
             if (Input.GetKeyUp(KeyCode.Space))
@@ -42,14 +43,15 @@ namespace Lecture29
         void FixedUpdate()
         {
             // rigidbody.rotation = Quaternion.Euler(0, 90, 0);
-
             if (jump)
             {
+                rigidbody.drag = 0.5f;
                 rigidbody.AddForce(Vector3.up * 10, ForceMode.Impulse);
                 jump = false;
             }
             else
             {
+                rigidbody.drag = 0;
                 rigidbody.velocity = input;
             }
         }
