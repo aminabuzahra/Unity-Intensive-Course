@@ -34,7 +34,6 @@ namespace Lecture30
         // ~0 = 1
         // ~1 = 0
 
-
         void Start()
         {
             Rigidbody rb = GetComponent<Rigidbody>();
