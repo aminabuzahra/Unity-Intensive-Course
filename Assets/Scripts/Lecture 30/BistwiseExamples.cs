@@ -34,28 +34,26 @@ namespace Lecture30
         // ~0 = 1
         // ~1 = 0
 
-        int a = 5;
-        int b = 10;
+
         void Start()
         {
-            // Rigidbody rb = GetComponent<Rigidbody>();
-            // int mask = 253;
-            // rb.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;  // 0111 1110 
-            // Debug.Log(((int)rb.constraints) & mask);
-            // // Debug.Log(a + b);
+            Rigidbody rb = GetComponent<Rigidbody>();
+            int mask = 253;
+            rb.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;  // 0111 1110 
+            Debug.Log(((int)rb.constraints) & mask);
 
-            // int bits = 1;
-            // bits = bits << 3;
-            // // bits <<= 3;
-            // Debug.Log(bits); // 2 * 2 * 2
+            int bits = 1;
+            bits = bits << 3;
+            // bits <<= 3;
+            Debug.Log(bits); // 2 * 2 * 2
 
-            // bits = bits >> 3;
-            // // bits >>= 3;
-            // Debug.Log(bits); // 2 / 2 / 2
+            bits = bits >> 3;
+            // bits >>= 3;
+            Debug.Log(bits); // 2 / 2 / 2
 
-            // int a = 1;
-            // int b = 2;
-            // Debug.Log(a ^ b);
+            int a = 1;
+            int b = 2;
+            Debug.Log(a ^ b);
 
             int num1 = 35;
             int num2 = 40;
@@ -68,7 +66,8 @@ namespace Lecture30
             num2 = num1 ^ num2;
             num1 = num1 ^ num2;
 
-            (num1, num2) = (num2, num1);
+            // (num1, num2) = (num2, num1);
+            Debug.Log($"Num1 = {num1}, Num2 = {num2}");
 
 
             int password1 = 1234;
@@ -87,8 +86,6 @@ namespace Lecture30
 
             Debug.Log(nPass1);
             Debug.Log(nPass2);
-
-            // Debug.Log($"Num1 = {num1}, Num2 = {num2}");
 
             Debug.Log(~(-16));
         }
