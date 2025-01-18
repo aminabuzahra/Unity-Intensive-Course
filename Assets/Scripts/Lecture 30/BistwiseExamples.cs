@@ -79,6 +79,7 @@ namespace Lecture30
 
             Debug.Log(encryptedPassword1);
             Debug.Log(encryptedPassword2);
+            
 
             int nPass1 = encryptedPassword1 ^ key;
             int nPass2 = encryptedPassword2 ^ key;
