@@ -54,7 +54,6 @@ public class BackFlipping : MonoBehaviour
         }
     }
 
-
     private void JumpAndBackFlip()
     {
         if (jump)
