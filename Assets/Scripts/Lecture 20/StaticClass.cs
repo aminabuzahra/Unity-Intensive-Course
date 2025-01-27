@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Lecture20
@@ -24,6 +26,11 @@ namespace Lecture20
             {
                 Debug.Log(num);
             }
+        }
+
+        public static List<TValue> FindAllValues<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, Predicate<TValue> predicate)
+        {
+            return dictionary.Values.ToList<TValue>().FindAll(predicate);
         }
     }
 }
