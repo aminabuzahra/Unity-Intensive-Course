@@ -14,8 +14,6 @@ namespace Lecture32
         // Tuple (1, "Khader")
         // Dictionary (key1, value1), (key2, value2), ...
 
-
-
         void Start()
         {
             // var myDictionary = new Dictionary<string, int>();
