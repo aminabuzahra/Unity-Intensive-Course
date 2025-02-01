@@ -36,23 +36,32 @@ namespace Lecture33
             //     Debug.Log(hit.collider.name);
             // }
 
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 6);
-            foreach (var collider in colliders)
-            {
-                Debug.Log(collider.name);
-            }
+
 
             // Rigidbody rb = GetComponent<Rigidbody>();
             // rb.useGravity = false;
 
             // Physics.gravity = new Vector3(-9.81f, 0, 0);
 
-            Physics.IgnoreCollision(transform.GetChild(0).GetComponent<Collider>(), GameObject.Find("Floor").GetComponent<Collider>());
+            // Physics.IgnoreCollision(transform.GetChild(0).GetComponent<Collider>(), GameObject.Find("Floor").GetComponent<Collider>());
 
         }
 
         void Update()
         {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 6);
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                foreach (var collider in colliders)
+                {
+                    Debug.Log(collider.name);
+                    Rigidbody rigidbody = collider.GetComponent<Rigidbody>();
+                    if (rigidbody != null)
+                    {
+                        rigidbody.AddExplosionForce(100, transform.position, 5f, 1f, ForceMode.Impulse);
+                    }
+                }
+            }
         }
     }
 }
