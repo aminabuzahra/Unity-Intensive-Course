@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Lecture33
 {
-    public class AdvancedRigidBodyCharacter : MonoBehaviour
+    public class PhysicsClass : MonoBehaviour
     {
         // [SerializeField]
         LayerMask layerMask; // = "Sharshabeel"
