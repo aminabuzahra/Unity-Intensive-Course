@@ -20,13 +20,11 @@ namespace Lecture38
         {
             backgroundMusicAudioSource = GetComponent<AudioSource>();
             backgroundMusicAudioSource.clip = backgroundMusicClip;
-
             backgroundMusicAudioSource.minDistance = 1f; // Maximum Volume
             backgroundMusicAudioSource.maxDistance = 10f; // Minumum Volume
             backgroundMusicAudioSource.spatialBlend = 1f;
             backgroundMusicAudioSource.rolloffMode = AudioRolloffMode.Linear;
             backgroundMusicAudioSource.dopplerLevel = 2f;
-
             zPosition = transform.position;
         }
 
@@ -96,7 +94,6 @@ namespace Lecture38
                 zPosition -= Vector3.forward;
                 AudioSource.PlayClipAtPoint(clips[0], zPosition);
             }
-
         }
     }
 }
